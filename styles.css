@@ -592,6 +592,22 @@ html {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .botones-hero {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;              
+    width: 100%;             
+    align-items: center;     
+  }
+
+  /* Ajustamos los botones individuales */
+  .boton-lleno, .boton-vacio {
+    width: 90%;              
+    text-align: center;     
+    padding: 12px 20px;    
+    font-size: 16px;    
+  }
 }
 
 
