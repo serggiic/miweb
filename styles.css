@@ -49,6 +49,13 @@ html, body {
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.logo:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .nombre {
