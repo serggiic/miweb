@@ -1,0 +1,699 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+  --morado-principal: #8a2be2;
+  --morado-oscuro: #1a0b2e;
+  --lila-brillante: #d8b4fe;
+}
+
+
+/* CONTENEDOR PARA CENTRAR LA BARRA */
+.contenedor-navegacion {
+  position: fixed;
+  top: 20px;       
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* BARRA ESTILO "PÍLDORA" */
+.barra-pildora {
+  background: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(10px);   
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  padding: 10px 25px;
+  border-radius: 50px;           
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* LOGO */
+.logo-serggi {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nombre {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.emblema {
+  background-color: var(--morado-principal);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ENLACES */
+.enlaces {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.enlaces a {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+  position: relative; 
+  padding-bottom: 5px; 
+}
+
+.enlaces a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;          
+    width: 100%;       
+    height: 2px;        
+    background-color: var(--morado-principal);
+    transition: transform 0.3s ease;
+    transform: scaleX(0);   
+    transform-origin: left; 
+}
+
+.enlaces a:hover {
+    color: white;
+}
+
+.enlaces a:hover::after {
+    transform: scaleX(1); 
+}
+
+/* BOTÓN DERECHA */
+.boton-contacto-pro {
+  background-color: var(--morado-principal);
+  color: white;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.boton-contacto-pro:hover {
+  box-shadow: 0 0 15px var(--morado-principal);
+  transform: scale(1.05);
+}
+
+
+/*SECCION HERO */
+
+.seccion-hero {
+  height: calc(100vh - 70px); 
+  background-color: #050505;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;          
+  overflow: hidden;            
+  padding: 0 20px;
+}
+
+/* EFECTO DE LUZ MORADA EN MOVIMIENTO */
+.fondo-luz-animada {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--morado-principal) 0%, transparent 70%);
+  filter: blur(80px);        
+  opacity: 0.4;              
+  z-index: 1;                
+  animation: moverLuz 15s infinite alternate ease-in-out;
+}
+
+@keyframes moverLuz {
+  0%   { top: 10%; left: 10%; transform: scale(1); }
+  50%  { top: 50%; left: 60%; transform: scale(1.3); }
+  100% { top: 20%; left: 30%; transform: scale(0.8); }
+}
+
+/* CONTENIDO (TEXTO Y BOTONES) */
+.contenido-hero {
+  position: relative;
+  z-index: 2;                 
+}
+
+.titulo-principal {
+  color: white;
+  font-size: clamp(40px, 8vw, 70px); 
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.texto-especial {
+  color: var(--morado-principal);
+  font-style: italic;         
+}
+
+.descripcion {
+  color: #a0a0a0;             
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+/* BOTONES */
+.botones-hero {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.boton-vacio {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 12px 30px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.boton-vacio:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.boton-lleno {
+  background-color: var(--morado-principal);
+  color: white;
+  text-decoration: none;
+  padding: 12px
+}
+
+/* SECCION SERVICIOS */
+
+.seccion-servicios {
+  background-color: #050505;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.titulo-seccion {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.contenedor-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tarjeta-servicio {
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid rgba(138, 43, 226, 0.2); 
+  padding: 40px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.tarjeta-servicio:hover {
+  background: rgba(138, 43, 226, 0.05);
+  border-color: var(--morado-principal);
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 30px rgba(138, 43, 226, 0.1);
+}
+
+.icono-servicio {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.tarjeta-servicio h3 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.tarjeta-servicio p {
+  color: #a0a0a0;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+
+/* SECCION PROYECTOS */
+
+
+.seccion-proyectos {
+  background-color: #050505;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contenedor-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tarjeta-proyecto {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  overflow: hidden; 
+  transition: 0.4s ease;
+  text-align: left;
+}
+
+.tarjeta-proyecto:hover {
+  transform: translateY(-12px);
+  border-color: var(--morado-principal);
+  box-shadow: 0 20px 40px rgba(138, 43, 226, 0.15);
+}
+
+/* Espacio para la imagen */
+.imagen-proyecto {
+  height: 200px;
+  background-image: url(img/bcnwebdesign.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+.p-1 {
+  background-image: url('img/bcnwebdesign.webp'); 
+}
+
+.p-2 {
+  background-image: url('img/dos.webp');
+}
+
+.p-3 {
+  background-image: url('img/rpa.webp');
+}
+
+
+.info-proyecto {
+  padding: 25px;
+}
+
+.categoria {
+  color: var(--morado-principal);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.info-proyecto h3 {
+  color: white;
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.info-proyecto p {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.enlace-ver {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.enlace-ver:hover {
+  color: var(--lila-brillante);
+  padding-left: 5px; 
+}
+
+
+
+/* SECCION CONTACTO */
+
+.seccion-contacto {
+  background-color: #050505;
+  padding: 100px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contenedor-contacto {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.titulo-contacto {
+  color: white;
+  font-size: 45px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.contacto-texto p {
+  color: #a0a0a0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contacto-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta-contacto {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tarjeta-contacto:hover {
+  border-color: var(--morado-principal);
+  background: rgba(138, 43, 226, 0.05);
+  transform: translateX(10px); 
+}
+
+.icono-contacto {
+
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px; 
+  font-size: 30px; 
+  line-height: 1; 
+}
+
+.icono-contacto svg {
+  width: 28px;
+  height: 28px;
+  display: block; 
+}
+
+.icono-contacto img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.detalle-contacto span {
+  display: block;
+  color: var(--morado-principal);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.detalle-contacto p {
+  color: white;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Responsive para tablets y móviles */
+
+@media (max-width: 850px) {
+  .contenedor-contacto {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .contacto-opciones {
+    align-items: center;
+  }
+  .tarjeta-contacto {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+  }
+}
+
+/* FORMULARIO CONTACTO */
+
+.contacto-formulario {
+  text-align: left;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.grupo-input input, 
+.grupo-input textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.grupo-input input:focus, 
+.grupo-input textarea:focus {
+  border-color: var(--morado-principal);
+  background: rgba(138, 43, 226, 0.03);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.1);
+}
+
+.boton-enviar {
+  background-color: var(--morado-principal);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.boton-enviar:hover {
+  box-shadow: 0 0 20px var(--morado-principal);
+  transform: translateY(-2px);
+}
+
+.descripcion-contacto {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+/* SECCION SOBRE MI */
+
+.seccion-sobre-mi {
+  background-color: #050505;
+  padding: 100px 20px;
+  color: white;
+}
+
+.contenedor-sobre-mi {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.subtitulo-seccion {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+.texto-presentacion {
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #efefef;
+}
+
+.texto-secundario {
+  color: #a0a0a0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* COLUMNA DE DATOS RÁPIDOS */
+
+.columna-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.caja-info {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.caja-info span {
+  display: block;
+  color: var(--morado-principal);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.caja-info p {
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+/* Responsive para móviles */
+
+@media (max-width: 768px) {
+  .contenedor-sobre-mi {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+
+
+/* PIE DE PAGINA */
+
+
+.pie-pagina {
+  background-color: #050505;
+  padding: 60px 20px 20px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.contenido-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-izq p {
+  color: #888;
+  margin-top: 15px;
+  max-width: 250px;
+  font-size: 14px;
+}
+
+.footer-der h4 {
+  margin-bottom: 15px;
+  color: var(--morado-principal);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-der a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer-der a:hover {
+  color: var(--lila-brillante);
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 20px;
+}
+
+.redes-sociales a {
+  font-size: 14px;
+  color: #888;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #444;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  padding-top: 20px;
+}
+
+/* Ajuste para móvil */
+
+@media (max-width: 600px) {
+  .contenido-footer {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .redes-sociales {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* píldora más estrecha */
+  .barra-pildora {
+    gap: 15px;
+    padding: 8px 15px;
+    width: 90%; 
+    justify-content: space-between;
+  }
+  .enlaces {
+    display: none; 
+  }
+
+  .nombre {
+    font-size: 16px;
+  }
+
+  .boton-contacto-pro {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
