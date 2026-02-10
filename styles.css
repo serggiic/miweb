@@ -45,6 +45,12 @@ html, body {
 }
 
 /* LOGO */
+
+#logo {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
 .logo-serggi {
   display: flex;
   align-items: center;
