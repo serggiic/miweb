@@ -3,15 +3,15 @@
   "short_name": "serggic.dev",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "./img/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "img/png",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "./img/web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "img/png",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
