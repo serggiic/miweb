@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serggic.dev/sitemap.xml
