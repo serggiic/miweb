@@ -482,6 +482,79 @@ html, body {
   }
 }
 
+
+/* SECCION PROCESO DE TRABAJO */
+
+.proceso-trabajo {
+    padding: 60px 0;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+
+.titulo-metodologia {
+    text-align: left; 
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.contenedor-pasos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+}
+
+.paso {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px; 
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.paso:hover {
+    border-color: var(--morado-principal);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.paso-numero {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(168, 85, 247, 0.07); 
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.paso h3 {
+    color: var(--morado-principal);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.paso p {
+    color: #ccc;
+    line-height: 1.7; 
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-pasos {
+        grid-template-columns: 1fr;
+    }
+    
+    .titulo-metodologia {
+        text-align: center;
+    }
+}
+
+
+
 /* FORMULARIO CONTACTO */
 
 .contacto-formulario {
