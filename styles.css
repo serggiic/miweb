@@ -211,14 +211,46 @@ html, body {
 .boton-vacio:hover {
   border-color: white;
   background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05);
 }
 
 .boton-lleno {
   background-color: var(--morado-principal);
   color: white;
   text-decoration: none;
-  padding: 12px
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: pulso 2s infinite;
 }
+
+.boton-lleno:hover {
+  animation: none;
+  box-shadow: 0 0 15px var(--morado-principal);
+  transform: scale(1.05);
+}
+
+
+
+@keyframes pulso {
+  0% {
+   
+    box-shadow: 0 0 0 0px rgba(201, 141, 240, 0.7);
+  }
+  70% {
+
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0);
+  }
+  100% {
+ 
+    box-shadow: 0 0 0 0px rgba(52, 152, 219, 0);
+  }
+}
+
 
 /* SECCION SERVICIOS */
 
