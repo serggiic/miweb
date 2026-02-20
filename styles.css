@@ -512,6 +512,95 @@ html, body {
   padding-left: 5px; 
 }
 
+/* SECCION TECNOLOGÍAS */
+
+.tecnologias-seccion {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.titulo-herramientas {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.slider-contenedor {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+.slider-contenedor::before,
+.slider-contenedor::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slider-contenedor::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0));
+}
+
+.slider-contenedor::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0));
+}
+
+.slider-track {
+    display: flex;
+    width: calc(200px * 18); 
+    animation: scroll-derecha 30s linear infinite;
+}
+
+.slide {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #666;
+    transition: 0.3s;
+}
+
+.slide i {
+    font-size: 40px;
+}
+
+.slide span {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.slide:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.slide:hover i {
+    color: var(--morado-principal);
+    filter: drop-shadow(0 0 10px var(--morado-principal));
+}
+
+
+@keyframes scroll-derecha {
+    0% {
+        transform: translateX(calc(-200px * 9));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
 
 /* SECCION CONTACTO */
 
