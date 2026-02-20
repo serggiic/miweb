@@ -602,6 +602,25 @@ html, body {
     }
 }
 
+@media (max-width: 768px) {
+    .slide {
+        width: 120px; 
+    }
+    
+    .slider-track {
+        width: calc(120px * 18); 
+    }
+
+    @keyframes scroll-derecha {
+        0% {
+            transform: translateX(calc(-120px * 9)); 
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+}
+
 /* SECCION CONTACTO */
 
 .seccion-contacto {
