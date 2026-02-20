@@ -80,10 +80,14 @@ html, body {
 }
 
 /* ENLACES */
+
 .enlaces {
   display: flex;
   list-style: none;
   gap: 20px;
+  align-items: center; 
+  margin: 0;
+  padding: 0;
 }
 
 .enlaces a {
@@ -95,7 +99,7 @@ html, body {
   padding-bottom: 5px; 
 }
 
-.enlaces a::after {
+.enlaces li:not(:last-child) a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -108,29 +112,130 @@ html, body {
     transform-origin: left; 
 }
 
-.enlaces a:hover {
+.enlaces li:not(:last-child) a:hover {
     color: white;
 }
 
-.enlaces a:hover::after {
+.enlaces li:not(:last-child) a:hover::after {
     transform: scaleX(1); 
 }
 
-/* BOTÓN DERECHA */
+/* BOTÓN */
+.enlaces li:last-child {
+  margin-left: 20px; 
+}
+
 .boton-contacto-pro {
   background-color: var(--morado-principal);
-  color: white;
+  color: white !important;
   text-decoration: none;
-  padding: 8px 18px;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
   transition: 0.3s;
+  display: inline-block;
+  padding: 7px 20px 9px 20px; 
+  line-height: normal; 
+  vertical-align: middle;
 }
 
 .boton-contacto-pro:hover {
   box-shadow: 0 0 15px var(--morado-principal);
   transform: scale(1.05);
+}
+
+/* MENÚ MÓVIL */
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    /* 1. Botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        z-index: 10001; 
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    .enlaces {
+        display: flex !important; 
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 10, 10, 0.98); 
+        text-align: center;
+        list-style: none;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        pointer-events: none;
+        padding: 0; 
+    }
+
+    .enlaces.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        padding: 20px 0;
+        pointer-events: auto;
+        border-bottom: 2px solid var(--morado-principal);
+    }
+
+    .enlaces li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    .enlaces.active li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+    }
+
+    .enlaces li a {
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+
+    /* Animación X */
+    #mobile-menu.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    #mobile-menu.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }
 
 
@@ -408,7 +513,6 @@ html, body {
 }
 
 
-
 /* SECCION CONTACTO */
 
 .seccion-contacto {
@@ -590,8 +694,6 @@ html, body {
     }
 }
 
-
-
 /* FORMULARIO CONTACTO */
 
 .contacto-formulario {
@@ -728,7 +830,6 @@ html, body {
     align-items: center;     
   }
 
-  /* Ajustamos los botones individuales */
   .boton-lleno, .boton-vacio {
     width: 90%;              
     text-align: center;     
@@ -820,25 +921,72 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  /* píldora más estrecha */
   .barra-pildora {
     gap: 15px;
     padding: 8px 15px;
-    width: 90%; 
+    width: 95%; 
     justify-content: space-between;
+    position: relative; 
   }
+
+  /* El Menú Desplegable */
   .enlaces {
-    display: none; 
+    display: flex; 
+    flex-direction: column;
+    position: absolute;
+    top: 120%; 
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.98);
+    border-radius: 20px;
+    padding: 0; 
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
   }
 
-  .nombre {
-    font-size: 16px;
+  .enlaces.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    padding: 20px 0;
+    pointer-events: auto;
+    border: 1px solid rgba(138, 43, 226, 0.3);
   }
 
-  .boton-contacto-pro {
-    padding: 6px 12px;
-    font-size: 12px;
+  .enlaces li {
+    margin: 15px 0;
+    width: 100%;
   }
+
+  .enlaces li .boton-contacto-pro {
+    display: inline-block;
+    width: auto;
+    margin-top: 5px;
+    padding: 10px 25px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+  }
+
+  /* Animación a X */
+  #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+  #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
 
