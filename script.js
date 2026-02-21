@@ -15,3 +15,22 @@ document.querySelectorAll('.enlaces a').forEach(link => {
         menuToggle.classList.remove('is-active');
     });
 });
+
+// BOTÓN VOLVER ARRIBA
+
+const volverArribaButton = document.getElementById("volver-arriba");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    volverArribaButton.classList.add("active");
+  } else {
+    volverArribaButton.classList.remove("active");
+  }
+});
+
+volverArribaButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" 
+  });
+});
