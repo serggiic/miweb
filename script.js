@@ -16,15 +16,24 @@ document.querySelectorAll('.enlaces a').forEach(link => {
   });
 });
 
-// BOTÓN VOLVER ARRIBA
+// BOTÓN VOLVER ARRIBA + NAVBAR SCROLL
 
 const volverArribaButton = document.getElementById("volver-arriba");
+const navBar = document.querySelector('.contenedor-navegacion');
 
 window.addEventListener("scroll", () => {
+  // Botón volver arriba
   if (window.scrollY > 300) {
     volverArribaButton.classList.add("active");
   } else {
     volverArribaButton.classList.remove("active");
+  }
+
+  // Navbar shrink
+  if (window.scrollY > 50) {
+    navBar.classList.add("scrolled");
+  } else {
+    navBar.classList.remove("scrolled");
   }
 });
 
